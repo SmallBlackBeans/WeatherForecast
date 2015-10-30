@@ -1,0 +1,44 @@
+#import "MJRefresh.h"
+#import "UIImage+GIF.h"
+#import "UIView+Extension.h"
+#import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
+#import "AFNetworking.h"
+#import "HXCTool.h"
+#import "HXCView.h"
+#import "XCView.h"
+#import "AppDelegate.h"
+
+//屏幕的尺寸数据
+#define SCREEN_BOUNDS [UIScreen mainScreen].bounds
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+// 常用颜色
+#define COLOR_LIGHTGRAYCOLOR [UIColor lightGrayColor]
+#define COLOR_WHITECOLOR [UIColor whiteColor]
+#define COLOR_BLACKCOLOR [UIColor blackColor]
+
+#define COLOR_RGB(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define COLOR_RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+//方法
+#define FONT(size) [UIFont systemFontOfSize:size]
+#define BOLDFONT(size) [UIFont boldSystemFontOfSize:size]
+
+// 被选中的城市列表存放路径
+#define kChosenCitysPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"chosenCitys.plist"]
+
+
+// 天气接口 -- cityIds = 城市的天气代码
+#define kWeather @"http://aider.meizu.com/app/weather/listWeather"
+
+// 搜索接口 -- p0 = 需要搜索的城市的名称
+#define kSearchCity @"http://aider.meizu.com/app/city/searchByKeyword"
+
+// 输出宏 : 当程序还在调试阶段,系统会默认有一个DEBUG宏.当程序发布后,不需要再查看输出语句.
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
