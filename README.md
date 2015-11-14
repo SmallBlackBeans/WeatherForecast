@@ -2,6 +2,7 @@
 模仿魅族自带的天气app
 #####
 实现定位和动态绘制天气折线
+#####
 //WGS-84 到 GCJ-02 的转换
 +(CLLocationCoordinate2D)transformFromWGSToGCJ:(CLLocationCoordinate2D)wgsLoc
 {
@@ -22,7 +23,7 @@
     }
     return adjustLoc;
 }
- 
+ #####
 //判断是不是在中国
 +(BOOL)isLocationOutOfChina:(CLLocationCoordinate2D)location
 {
