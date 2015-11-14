@@ -4,6 +4,7 @@
 实现定位和动态绘制天气折线
 #####
 WGS-84 到 GCJ-02 的转换
+#####
 +(CLLocationCoordinate2D)transformFromWGSToGCJ:(CLLocationCoordinate2D)wgsLoc
 {
     CLLocationCoordinate2D adjustLoc;
@@ -25,6 +26,7 @@ WGS-84 到 GCJ-02 的转换
 }
 #####
 判断是不是在中国
+#####
 +(BOOL)isLocationOutOfChina:(CLLocationCoordinate2D)location
 {
     if (location.longitude < 72.004 || location.longitude > 137.8347 || location.latitude < 0.8293 || location.latitude > 55.8271)
